@@ -1,0 +1,4 @@
+10) select staff_code,staff_name,staff_sal
+ from staff_master
+ where staff_sal<(select avg(staff_sal) from staff_master)
+ /
