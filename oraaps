@@ -2,3 +2,15 @@
  from staff_master
  where staff_sal<(select avg(staff_sal) from staff_master)
  /
+
+
+14) select Book_pub_author, Book_name
+  from book_master
+  where Book_pub_author
+ in ( select Book_pub_author
+    from book_master
+     group by Book_pub_author
+                  having count(1)>1
+      )
+  order by Book_pub_author, Book_name
+ /
