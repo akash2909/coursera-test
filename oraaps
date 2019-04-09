@@ -1,16 +1,21 @@
-10) select staff_code,staff_name,staff_sal
- from staff_master
- where staff_sal<(select avg(staff_sal) from staff_master)
- /
+3. Write a query to change the job and deptno of employee whose empno is 7698 to the job and deptno of employee having empno 7788.
+ update employee
+ set job=(select job from employee where empno=7788),
+ deptno=(select deptno from employee where empno=7788) where empno=7698
+/
 
+4. Delete the details of department whose department name is ‘SALES’.
+5. Write a query to change the deptno of employee with empno 7788 to that of employee having empno 7698.
+ update employee set
+ deptno=(select deptno from employee where deptno=7788)
+ where deptno=7698
 
-14) select Book_pub_author, Book_name
-  from book_master
-  where Book_pub_author
- in ( select Book_pub_author
-    from book_master
-     group by Book_pub_author
-                  having count(1)>1
-      )
-  order by Book_pub_author, Book_name
- /
+6. Insert the following rows to the Employee table through parameter substitution.
+• 1000,Allen, Clerk,1001,12-jan-01, 3000, 2,10
+• 1001,George, analyst, null, 08 Sep 92, 5000,0, 10
+• 1002, Becker, Manager, 1000, 4 Nov 92, 2800,4, 20
+• 1003, 'Bill', Clerk, 1002, 4 Nov 92,3000, 0, 20
+insert into employee values(1000,'Allen', 'Clerk',1001,'12-jan-01', 3000, 2,10);
+ insert into employee values(1001,'George', 'analyst', null,' 08 Sep 92', 5000,0, 10);
+  insert into employee values(1002,'Becker', 'Manager', 1000, '4 Nov 92', 2800,4, 20);
+  insert into employee values(1003, 'Bill', 'Clerk', 1002, '4 Nov 92',3000, 0, 20);
