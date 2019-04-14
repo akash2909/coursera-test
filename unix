@@ -110,9 +110,14 @@ fi
 -----------------------------------------------
 quotient and reminder
 -----------------------------------------------
-
-
-
+echo "Enter x:"
+read x
+echo "enter y:"
+read y
+reminder=$(( x / y))
+quotient=$((x % y))
+echo "reminder is : $reminder"
+echo "quotient is : $quotient" 
 
 -----------------------------------------------
 divisible by 5
