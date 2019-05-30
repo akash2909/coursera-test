@@ -1,0 +1,49 @@
+example(if class implements an interface it should override all the methods declared in the interface otherwise class becomes abstract)
+
+package Interface2;
+
+public interface A {
+	public void interface1();
+	public void interface2();
+	public void interface3(int i);
+	public void interface4(String s);
+
+}
+.........
+package Interface2;
+
+public class MyClass implements A {
+public void interface1() {
+	System.out.println("interface 1");
+}
+public void interface2() {
+	System.out.println("interface2");
+}
+public void interface3(int i) {
+	System.out.println(i);
+}
+public static void main(String[] args) {
+	MyClass c1=new MyClass();
+	c1.interface1();
+	c1.interface2();
+	c1.interface3(30);
+}
+}
+------------------------------------------------------------------------------------------
+example(By default every variables in the interface is public,static,final)
+
+package Interface2;
+
+public interface A {
+ int i=10;
+}
+.....
+package Interface2;
+
+public class MyClass implements A {
+public static void main(String[] args) {
+	System.out.println(A.i);
+}
+}
+............................................................................
+ 
